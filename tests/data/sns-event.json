@@ -1,0 +1,21 @@
+{
+    "Records": [
+        {
+            "EventSource": "aws:sns",
+            "EventVersion": "1.0",
+            "EventSubscriptionArn": "arn:aws:sns:eu-central-1:423715701352:CreditReservation:5504bc36-1ae0-4abf-b921-08f0fadfc429",
+            "Sns": {
+                "Type": "Notification",
+                "MessageId": "1141479e-a286-5e90-bbb8-1455a038ef8f",
+                "TopicArn": "arn:aws:sns:eu-central-1:423715701352:InventoryReservation",
+                "Subject": "this is a fucking test",
+                "Message": "{\"orderId\": 1, \"ok\": true}",
+                "Timestamp": "2018-07-19T21:19:58.062Z",
+                "SignatureVersion": "1",
+                "Signature": "naizOoKGQk4Kw8NOwLhG/4Ajz0wV0ydb7fmLZrd2LszuAdIc6MWCZlMIpVpLaBKyiPUZbLDMB5C4d56W001Mitj4Ymp/6BoxS79FxMzeqAoTwJHBHki5PGBfZWSs+ULYxSJCYwK7RJFIXjTNLe4EdZIhQOpUYH9620XREAjgliuMqrJQbZg9A80pvRexwp1d6KawP05itINqwbRAIJag4t9p7ZMwmaU1yuZlbbWlDUVoNzisYyOYXujVdpuCcY7YlaJkEMcY4T7W69uq0wOrjvmIbSKjSfopG0qOEpF3V2rbCPIz438QY6tHWStz27Qh9SgD3jQD6CPOnJv7rrmIDg==",
+                "SigningCertUrl": "https://sns.eu-central-1.amazonaws.com/SimpleNotificationService-ac565b8b1a6c5d002d285f9598aa1d9b.pem",
+                "UnsubscribeUrl": "https://sns.eu-central-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-central-1:423715701352:CreditReservation:5504bc36-1ae0-4abf-b921-08f0fadfc429"
+            }
+        }
+    ]
+}

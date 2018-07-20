@@ -1,0 +1,30 @@
+{
+  "name": "agregoncio",
+  "version": "1.0.0",
+  "description": "Simple AWS based event aggregator",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatoargh/agregoncio.git"
+  },
+  "keywords": [
+    "events",
+    "aggregator"
+  ],
+  "author": "Renato Gama <renatoargh@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renatoargh/agregoncio/issues"
+  },
+  "homepage": "https://github.com/renatoargh/agregoncio#readme",
+  "devDependencies": {
+    "aws-sdk": "^2.278.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "dynamodb-data-types": "^3.0.1"
+  }
+}

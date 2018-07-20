@@ -1,0 +1,28 @@
+{
+    "Records": [
+        {
+            "eventID": "d34bd7bf241090e4017a4e45ec2f96d9",
+            "eventName": "INSERT",
+            "eventVersion": "1.1",
+            "eventSource": "aws:dynamodb",
+            "awsRegion": "eu-central-1",
+            "dynamodb": {
+                "ApproximateCreationDateTime": 1532041500,
+                "Keys": {
+                    "aggregator": {
+                        "S": "asdasd"
+                    }
+                },
+                "NewImage": {
+                    "aggregator": {
+                        "S": "asdasd"
+                    }
+                },
+                "SequenceNumber": "103000000000001457622010",
+                "SizeBytes": 32,
+                "StreamViewType": "NEW_AND_OLD_IMAGES"
+            },
+            "eventSourceARN": "arn:aws:dynamodb:eu-central-1:423715701352:table/events-agregations/stream/2018-07-19T22:32:12.935"
+        }
+    ]
+}
