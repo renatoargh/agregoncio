@@ -4,7 +4,9 @@
   "description": "Simple AWS based event aggregator",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0;"
+    "test": "exit 0;",
+    "build": "rm ./agregoncio.zip || true && rm -r node_modules || true && npm i --production && zip -x dev.env .DS_Store -x *tests* *.git* -9 -r agregoncio.zip .",
+    "build-dev": "rm ./agregoncio.zip || true && rm -r node_modules || true && npm i"
   },
   "repository": {
     "type": "git",
