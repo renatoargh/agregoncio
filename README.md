@@ -1,2 +1,2 @@
 # agregoncio
-Super simple didactic events aggregator using sns, lambda, dynamo and sqs
+Super simple server-less didactic events aggregator using AWS Sns, Lambda and DynamoDb
