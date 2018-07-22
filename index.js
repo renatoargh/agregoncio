@@ -1,1 +1,1 @@
-exports.handler = require('./lib')
+exports.handler = require('./lib/lambda')
