@@ -1,72 +1,44 @@
 {
     "Records": [
       {
-          "eventID": "57f5341dbf9ae996741122adae7d50ab",
+          "eventID": "402e5fe3e36e69dd32fae6aa7eb7d3ef",
           "eventName": "MODIFY",
           "eventVersion": "1.1",
           "eventSource": "aws:dynamodb",
           "awsRegion": "eu-central-1",
           "dynamodb": {
-              "ApproximateCreationDateTime": 1532195220,
+              "ApproximateCreationDateTime": 1532219820,
               "Keys": {
-                  "id": {
-                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted:123"
+                  "topic": {
+                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted"
                   }
               },
               "NewImage": {
-                  "id": {
-                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted:123"
+                  "subscriptions": {
+                      "SS": [
+                          "\"arn:aws:sns:eu-central-1:423715701352:CreditReservation\""
+                      ]
                   },
-                  "events": {
-                      "M": {
-                          "InventoryReservation": {
-                              "M": {
-                                  "orderId": {
-                                      "N": "123"
-                                  },
-                                  "iuh": {
-                                      "N": "978"
-                                  }
-                              }
-                          },
-                          "CreditReservation": {
-                              "M": {
-                                  "orderId": {
-                                      "N": "123"
-                                  }
-                              }
-                          }
-                      }
+                  "topic": {
+                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted"
+                  },
+                  "groupBy": {
+                      "S": "orderId"
                   }
               },
               "OldImage": {
-                  "id": {
-                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted:123"
+                  "topic": {
+                      "S": "arn:aws:sns:eu-central-1:423715701352:OrderRequirementsCompleted"
                   },
-                  "events": {
-                      "M": {
-                          "InventoryReservation": {
-                              "M": {
-                                  "orderId": {
-                                      "N": "123"
-                                  }
-                              }
-                          },
-                          "CreditReservation": {
-                              "M": {
-                                  "orderId": {
-                                      "N": "123"
-                                  }
-                              }
-                          }
-                      }
+                  "groupBy": {
+                      "S": "orderId"
                   }
               },
-              "SequenceNumber": "6700000000002067689978",
-              "SizeBytes": 369,
+              "SequenceNumber": "771900000000001712311453",
+              "SizeBytes": 305,
               "StreamViewType": "NEW_AND_OLD_IMAGES"
           },
-          "eventSourceARN": "arn:aws:dynamodb:eu-central-1:423715701352:table/events2/stream/2018-07-21T17:15:21.729"
+          "eventSourceARN": "arn:aws:dynamodb:eu-central-1:423715701352:table/aggregators2/stream/2018-07-21T20:43:13.979"
       }
     ]
 }
