@@ -26,5 +26,12 @@
     "aws-sdk": "^2.278.1",
     "bluebird": "^3.5.1",
     "dynamodb-data-types": "^3.0.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.22.2",
+    "pug": "^2.0.3"
   }
 }

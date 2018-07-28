@@ -1,55 +1,63 @@
-html
-  head
-    title: | Events Aggregator - UI
-    link(href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
-  body
-    .container
-      .col-sm-offset-2.col-sm-8
-        .row
-          h1: | Aggregators
-        .row
-          table.table.table-condensed.table-striped
-            thead
-              tr
-                th: | Topic
-                th: | Group By
-                th: | Events
-            tbody
-              each aggregator in aggregators
-                tr
-                  td: | #{aggregator.topic.split(':').pop()}
-                  td: | #{aggregator.groupBy}
-                  td
-                    ul(style="list-style-type: none; padding-left: 0px;")
-                      each event in aggregator.events
-                        li
-                          - const eventName = event.split(':').pop()
-                          | #{eventName}
-                          | &nbsp;
-                          a(data-topicArn=event, data-topicName=eventName, data-toggle="modal", data-target="#publish", href="#")
-                            i.glyphicon.glyphicon.glyphicon-bullhorn
+extends layout
 
-    #publish(class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
-      div(class="modal-dialog" role="document")
-        div(class="modal-content")
-          div(class="modal-header")
-            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
-              span(aria-hidden="true")
-              |&times;
-            h4(class="modal-title" id="myModalLabel")
-              | Publish Event
+block contents
+  .row(style="padding-bottom: 25px;")
+    button.btn.btn-xs.btn-success(style="margin-right: 5px;")
+      i.glyphicon.glyphicon-plus
+      | &nbsp;Create
 
-          div(class="modal-body")
-            .row
-              .col-sm-12
-                textarea.form-control#eventData(rows="10", placeholder="JSON formatted event data")
+  .row
+    table.table.table-condensed.table-striped
+      thead
+        tr
+          th: | Events (Inputs)
+          th: | Group By
+          th: | Aggregator Event (Output)
+          th
+      tbody
+        each aggregator in aggregators
+          tr
+            td
+              ul(style="list-style-type: none; padding-left: 0px;")
+                each event in aggregator.events
+                  li
+                    - const name = event.split(':').pop()
+                    | #{name}
+                    | &nbsp;
+                    a.event(data-topicArn=event, data-event=name, href="#")
+                      i.glyphicon.glyphicon.glyphicon-bullhorn
 
-          div(class="modal-footer")
-            button(type="button", class="btn btn-default" data-dismiss="modal")
-              | Cancel
-            button(type="button", class="btn btn-primary")
-              | Publish
+            td: | #{aggregator.groupBy}
+            td: | #{aggregator.topic.split(':').pop()}
+            td(style="text-align: right;")
+              button.btn.btn-xs.btn-info(style="margin-right: 5px;")
+                i.glyphicon.glyphicon-pencil
+                | &nbsp;Edit
 
-    script(src="https://code.jquery.com/jquery-2.2.4.min.js", integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=", crossorigin="anonymous")
-    script(src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+              button.btn.btn-xs.btn-trash.btn-danger
+                i.glyphicon.glyphicon-trash
+                | &nbsp;Delete
 
+  #publish-events.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+    div(class="modal-dialog" role="document")
+      div(class="modal-content")
+        div(class="modal-header")
+          button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true")
+            |&times;
+          h4(class="modal-title" id="myModalLabel")
+            | Publish Event
+
+        div(class="modal-body")
+          .row
+            .col-sm-12
+              textarea.form-control#eventData(rows="10", placeholder="JSON formatted event data")
+
+        div(class="modal-footer")
+          button(type="button", class="btn btn-default" data-dismiss="modal")
+            | Cancel
+          button(type="button", class="btn btn-primary")
+            | Publish
+
+block scripts
+  script(src="/js/publish-events.js")

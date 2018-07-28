@@ -1,0 +1,18 @@
+extends layout
+
+block contents
+  .row
+    table.table.table-condensed.table-striped
+      thead
+        tr
+          th: | Events
+          th: | Aggregators
+      tbody
+        each subscription in subscriptions
+          tr
+            td: | #{subscription.topicArn.split(':').pop()}
+            td
+              ul(style="list-style-type: none; padding-left: 0px;")
+                each aggregator in subscription.aggregators
+                  li
+                    | #{aggregator.split(':').pop()}

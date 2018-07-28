@@ -1,0 +1,56 @@
+//- Navbar mixins
+mixin nav(id, style)
+  - var style = (typeof style === 'undefined') ? 'default' : style
+  nav( role='navigation', class=['navbar', 'navbar-' + style] )
+    .navbar-header
+      button.navbar-toggle.collapsed( type='button', data-toggle='collapse', data-target='#' + id, aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+    .collapse.navbar-collapse(id=id, style='padding-left: 0px;')
+      ul.nav.navbar-nav
+        block
+
+mixin nav_item(href)
+  - const active = path === href ? 'active' : ''
+  li(class=active): a(href=href)
+    block
+
+mixin nav_item_dropdown(href, active)
+  li(class=['dropdown', active])
+    a.dropdown-toggle(href=href, data-toggle='dropdown', role='button', aria-expanded='false')= attributes.label
+      span.caret
+    ul.dropdown-menu(role='menu')
+      block
+
+mixin nav_divider
+  li.divider
+
+mixin nav_header
+  li.dropdown-header
+    block
+
+//- End navbar mixins
+
+html
+  head
+    title: | Events Aggregator
+    link(href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+  body
+    .container
+      .col-sm-offset-1.col-sm-10
+        .row
+          h1: | AWS Serverless Events Aggregator
+          .lead: | #{title}
+
+          +nav('dropdown_menu')
+            +nav_item('/aggregators', 'active') Aggregators
+            +nav_item('/subscriptions', '') Subscriptions
+
+        block contents
+
+    script(src="https://code.jquery.com/jquery-2.2.4.min.js", integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=", crossorigin="anonymous")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
+    block scripts
