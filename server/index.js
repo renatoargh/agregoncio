@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname, '/views'))
 
 app.use(express.static(STATIC_PATH))
 app.use(methodOverride('_method'))
-app.use(bodyParser.json())
+app.use(bodyParser.json({ extend: true }))
 
 app.use((req, res, next) => {
   res.locals.path = req.path
@@ -28,6 +28,13 @@ async function createAggregator (aggregator) {
 
   await sns.subscribeTo(aggregator.events, LAMBDA_ARN, topicArn)
 }
+
+app.post('/events', async (req, res) => {
+  const { topicArn, message } = req.body
+  await sns.publish(topicArn, message)
+
+  res.status(204).json({})
+})
 
 app.post('/aggregators', async (req, res) => {
   await createAggregator(req.body)
