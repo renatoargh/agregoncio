@@ -38,8 +38,13 @@ $(function () {
       })
     })
 
+    $modal.on('shown.bs.modal', function () {
+      $textarea.focus()
+    })
+
     $modal.on('hidden.bs.modal', function () {
       $textarea.val('')
+      $modal.off()
     })
 
     $modal.on('hide.bs.modal', function () {
