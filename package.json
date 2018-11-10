@@ -26,7 +26,6 @@
   "homepage": "https://github.com/renatoargh/agregoncio#readme",
   "dependencies": {
     "aws-sdk": "^2.278.1",
-    "bluebird": "^3.5.1",
     "dynamodb-data-types": "^3.0.1"
   },
   "devDependencies": {
