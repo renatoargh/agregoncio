@@ -60,14 +60,14 @@ app.listen(PORT, () => {
   console.log('events-aggregator ui listening on port', PORT)
 })
 
-async function main() {
-  await createAggregator({
-    name: 'AnotherEvent',
-    groupBy: 'orderId',
-    events: [
-      'arn:aws:sns:eu-central-1:423715701352:CreditReservation'
-    ]
-  }, LAMBDA_ARN)
-}
+// async function main() {
+//   await createAggregator({
+//     name: '...',
+//     groupBy: 'orderId',
+//     events: [
+//       'arn:aws:sns:eu-central-1:423715701352:OrderRequirementsFulfilled'
+//     ]
+//   }, LAMBDA_ARN)
+// }
 
-main()
+// main()

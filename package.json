@@ -6,7 +6,7 @@
   "scripts": {
     "test": "exit 0;",
     "build": "echo building && rm ./agregoncio.zip || true && rm -r node_modules || true && npm i --production && zip -x dev.env .DS_Store -x *tests* *.git* -9 -r agregoncio.zip .",
-    "deploy": "npm run build && echo deploying && source dev.env && aws lambda update-function-code --function-name $LAMBDA_ARN --zip-file fileb://agregoncio.zip",
+    "deploy": "source dev.env && npm run build && echo deploying && source dev.env && aws lambda update-function-code --function-name $LAMBDA_ARN --zip-file fileb://agregoncio.zip",
     "build-dev": "rm ./agregoncio.zip || true && rm -r node_modules || true && npm i",
     "start": "clear && npm run build-dev && source dev.env && node server/index.js"
   },
